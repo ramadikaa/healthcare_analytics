@@ -395,26 +395,28 @@ with tab2:
     col_scatter1, col_scatter2 = st.columns(2)
     
     with col_scatter1:
+        # Age vs Billing
         fig_scatter1 = px.scatter(
             filtered_df,
             x='Age',
             y='Billing Amount',
             title='Age vs Billing Amount',
-            trendline='ols',
             color='Medical Condition',
-            hover_data=['Hospital', 'Admission Type']
+            hover_data=['Hospital', 'Admission Type'],
+            size_max=8
         )
         st.plotly_chart(fig_scatter1, use_container_width=True)
-    
+
     with col_scatter2:
+        # LOS vs Billing
         fig_scatter2 = px.scatter(
             filtered_df,
             x='LOS',
             y='Billing Amount',
             title='Length of Stay vs Billing Amount',
-            trendline='ols',
             color='Admission Type',
-            hover_data=['Hospital', 'Medical Condition']
+            hover_data=['Hospital', 'Medical Condition'],
+            size_max=8
         )
         st.plotly_chart(fig_scatter2, use_container_width=True)
 
